@@ -4,6 +4,10 @@ You are a back-end developer working on a team that is building an application t
 Your team is working in a service-oriented architecture. The front-end will communicate with your back-end through an API. Your job is to expose that API that satisfies the front-end team’s requirements.This README would normally document whatever steps are necessary to get the
 application up and running.
 
+## Gems
+[![Ruby Style Guide](https://img.shields.io/badge/code_style-rubocop-brightgreen.svg)](https://github.com/rubocop/rubocop)
+
+
 Things you may want to cover:
 
 * Ruby version
