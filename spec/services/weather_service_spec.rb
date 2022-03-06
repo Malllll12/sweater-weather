@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe WeatherService do
   it 'returns data for a location', :vcr do
     weather = WeatherService.get_forecast('39.738453', '-104.984853')
-    # binding.pry
+
     expect(weather).to be_a(Hash)
     expect(weather[:current]).to have_key(:dt)
     expect(weather[:current]).to have_key(:sunrise)
