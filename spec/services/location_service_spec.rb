@@ -6,5 +6,7 @@ RSpec.describe LocationService do
 
     expect(location).to be_a(Hash)
     expect(location[:results]).to be_an(Array)
+    expect(location[:results].first).to have_key(:locations)
+    expect(location[:results].first[:locations].first).to have_key(:latLng)    
   end
 end
