@@ -31,10 +31,9 @@ RSpec.describe DailyWeather do
                         "uvi": 3.02}]}
 
     daily = DailyWeather.new(data)
-    # binding.pry
-    expect(daily.date).to eq("2022-03-06")
-    expect(daily.sunrise).to eq("06:03 AM")
-    expect(daily.sunset).to eq("05:03 PM")
+    expect(daily.date).to eq("2022-06-03 12:00:00 -0700")
+    expect(daily.sunrise).to eq("2022-06-03 06:25:35 -0700")
+    expect(daily.sunset).to eq("2022-06-03 17:57:04 -0700")
     expect(daily.max_temp).to eq(26.17)
     expect(daily.min_temp).to eq(21.31)
     expect(daily.conditions).to eq("light snow")
