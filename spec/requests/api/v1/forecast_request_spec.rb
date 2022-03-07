@@ -20,7 +20,7 @@ RSpec.describe "Forecast API" do
       expect(forecast[:attributes][:current_weather][:sunset]).to be_a(String)
       expect(forecast[:attributes][:current_weather][:feels_like]).to be_a(Float)
       expect(forecast[:attributes][:current_weather][:humidity]).to be_a(Integer)
-      expect(forecast[:attributes][:current_weather][:uvi]).to be_a(Integer)
+      expect(forecast[:attributes][:current_weather][:uvi]).to be_a(Float)
       expect(forecast[:attributes][:current_weather][:visibility]).to be_a(Integer)
       expect(forecast[:attributes][:current_weather][:conditions]).to be_a(String)
       expect(forecast[:attributes][:current_weather][:icon]).to be_a(String)
