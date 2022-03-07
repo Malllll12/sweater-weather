@@ -1,9 +1,9 @@
 class Location
-  attr_reader :lat,
-              :long
+  attr_reader :latitude,
+              :longitude
 
   def initialize(data)
-    @lat = data[:results][0][:locations][0][:latLng][:lat]
-    @long = data[:results][0][:locations][0][:latLng][:lng]
+    @latitude = data[:latLng][:lat]
+    @longitude = data[:latLng][:lng]
   end
 end

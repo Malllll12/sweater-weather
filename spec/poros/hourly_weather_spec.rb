@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe HourlyWeather do
   it 'exists and has attributes' do
-    data = {  "hourly": [ {
+    data =  {
               "dt": 1646596800,
               "temp": 23.9,
               "feels_like": 14.97,
@@ -15,16 +15,9 @@ RSpec.describe HourlyWeather do
               "wind_speed": 8.01,
               "wind_deg": 29,
               "wind_gust": 4.26,
-              "weather": [
-                {
-                    "id": 600,
-                    "main": "Snow",
-                    "description": "light snow",
-                    "icon": "13d"
-                }],
+              "weather": [{"id": 600,  "main": "Snow",  "description": "light snow",  "icon": "13d"  }],
             "pop": 0.8,
-            "snow": {
-                "1h": 0.13}}]}
+            "snow": { "1h": 0.13}}
 
     hourly = HourlyWeather.new(data)
     expect(hourly.time).to eq("13:00:00")
