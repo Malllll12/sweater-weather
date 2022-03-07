@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Forecast API" do
-  describe "happy path" do
+  describe "happy path", :vcr do
     it "returns forecast attributes" do
       get '/api/v1/forecast?location=denver,co'
 
