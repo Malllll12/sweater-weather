@@ -10,22 +10,22 @@ RSpec.describe "Book API" do
     expect(response.status).to be(200)
 
     expect(books).to have_key(:id)
+    expect(books[:id]).to eq("null")
     expect(books).to have_key(:type)
-    expect(books[:attributes]).to have_key(:destination)
-    expect(books[:attributes]).to have_key(:forecast)
-    expect(books[:attributes]).to have_key(:total_books_found)
-    expect(books[:attributes]).to have_key(:books)
+    expect(books[:type]).to eq("books")
+
+    expect(books[:attribute]).to have_key(:destination)
+    expect(books[:attribute][:destination]).to have_key(:latitude)
+    expect(books[:attribute][:destination]).to have_key(:longitude)
+    expect(books[:attribute]).to have_key(:forecast)
+    expect(books[:attribute][:forecast]).to have_key(:summary)
+    expect(books[:attribute][:forecast]).to have_key(:temperature)
+    expect(books[:attribute]).to have_key(:total_books_found)
+    expect(books[:attribute][:total_books_found]).to eq(41867)
+    expect(books[:attribute]).to have_key(:books)
+    expect(books[:attribute][:books].count).to eq(5)
+    expect(books[:attribute][:books][0]).to have_key(:title)
+    expect(books[:attribute][:books][0]).to have_key(:isbn)
+    expect(books[:attribute][:books][0]).to have_key(:publisher)
   end
 end
-# Assignment
-# You will be using the “Open Library API” to search for books based on a destination city provided by the user. Presume that your user will give a known “good” location. (you can handle edge cases later)
-# Your endpoint should follow this format:
-# GET /api/v1/book-search?location=denver,co&quantity=5
-# please do not deviate from the names of the endpoint or query parameter, be sure it is called “book-search” and “location” and “quantity”, respectively
-# quantity should be a positive integer greater than 0
-# Your API will return:
-# the destination city
-# the forecast in that city right now
-# the total number of search results found
-# a quantity of books about the destination city
-# Your response should be in the format below:
