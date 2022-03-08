@@ -7,4 +7,10 @@ RSpec.describe LocationFacade do
     expect(location.latitude).to eq(38.478034)
     expect(location.longitude).to eq(-107.876806)
   end
+
+  it "returns formatted time", :vcr do
+    eta = LocationFacade.get_trip('lakewood,co', 'montrose, co')
+
+    expect(eta).to be_a(String)
+  end
 end
