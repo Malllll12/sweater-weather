@@ -9,4 +9,10 @@ RSpec.describe LocationService do
     expect(location[:results].first).to have_key(:locations)
     expect(location[:results].first[:locations].first).to have_key(:latLng)
   end
+
+  it 'returns data for directions', :vcr do
+    route = LocationService.get_directions('lakewood,co', 'montrose, co')
+
+    expect(route).to be_a(Hash)
+  end
 end

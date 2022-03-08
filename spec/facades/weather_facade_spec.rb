@@ -17,4 +17,9 @@ RSpec.describe WeatherFacade do
     expect(forecast.first).to be_an_instance_of(HourlyWeather)
     expect(forecast.count).to eq(8)
   end
+
+  it 'returns weather at eta', :vcr do
+    forecast = WeatherFacade.arrival_weather('38.4783', '-107.8762', "04:37:32")
+   expect(forecast).to be_a(Trip)
+  end
 end

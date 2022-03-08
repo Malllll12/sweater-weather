@@ -20,7 +20,7 @@ RSpec.describe "Forecast request endpoint" do
       expect(forecast[:attributes][:current_weather][:sunset]).to be_a(String)
       expect(forecast[:attributes][:current_weather][:feels_like]).to be_a(Float)
       expect(forecast[:attributes][:current_weather][:humidity]).to be_a(Integer)
-      expect(forecast[:attributes][:current_weather][:uvi]).to be_a(Integer)
+      expect(forecast[:attributes][:current_weather][:uvi]).to be_a(Float)
       expect(forecast[:attributes][:current_weather][:visibility]).to be_a(Integer)
       expect(forecast[:attributes][:current_weather][:conditions]).to be_a(String)
       expect(forecast[:attributes][:current_weather][:icon]).to be_a(String)
@@ -52,7 +52,7 @@ RSpec.describe "Forecast request endpoint" do
     xit 'will not return forecast without a correct location' do
       get '/api/v1/forecast?location=jenver'
 
-      expect(response.status).to eq(400)
+      expect(response.status).to eq(404)
     end
   end
 end

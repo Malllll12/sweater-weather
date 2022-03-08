@@ -18,4 +18,12 @@ class WeatherFacade
     end
   end
 
+  def self.arrival_weather(latitude, longitude, time)
+    arrival = time.split(":").first.to_i
+    data = WeatherService.get_forecast(latitude, longitude)
+    forecast = data[:hourly].map do |data|
+      Trip.new(data)
+    end
+    forecast[arrival]
+  end
 end
