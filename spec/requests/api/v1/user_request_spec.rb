@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "user API" do
+RSpec.describe "user request endpoint" do
   describe 'happy path' do
     it "creates a new user", :vcr do
       info = {"email": "fake@example.com",
