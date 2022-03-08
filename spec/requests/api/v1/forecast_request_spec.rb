@@ -41,14 +41,16 @@ RSpec.describe "Forecast request endpoint" do
   end
 
   describe "sad path" do
-    xit 'will not return forecast without a location' do
+    it 'will not return forecast without a location' do
       get '/api/v1/forecast?location='
 
-      expect(response.status).to eq(400)
+      expect(response).to_not be_successful
+
+      expect(response.status).to eq(404)
     end
 
     xit 'will not return forecast without a correct location' do
-      get '/api/v1/forecast?location=jenver,co'
+      get '/api/v1/forecast?location=jenver'
 
       expect(response.status).to eq(400)
     end
