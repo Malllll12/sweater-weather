@@ -5,8 +5,8 @@ RSpec.describe "returns Roadtrip endpoint" do
     it "returns roadtrip data" do
       user = User.create(email: "fake@example.com", password: "seacret", password_confirmation: "seacret", api_key: User.api_key_generate)
       info = {
-                  "origin": "Denver,CO",
-                  "destination": "Pueblo,CO",
+                  "origin": "Lakewood,CO",
+                  "destination": "Montrose,CO",
                   "api_key": user.api_key
                 }
     post "/api/v1/road_trip", params: info, as: :json
@@ -14,10 +14,11 @@ RSpec.describe "returns Roadtrip endpoint" do
     expect(response.status).to eq(201)
 
     trip = JSON.parse(response.body, symbolize_names: true)[:data]
+
     expect(trip).to have_key(:id)
     expect(trip[:id]).to eq("null")
-    expect(trip).to have_key(:trip)
-    expect(trip[:trip]).to eq("roadtrip")
+    expect(trip).to have_key(:type)
+    expect(trip[:type]).to eq("roadtrip")
     expect(trip[:attributes]).to have_key(:start_city)
     expect(trip[:attributes][:start_city]).to be_a(String)
     expect(trip[:attributes]).to have_key(:end_city)
@@ -70,15 +71,15 @@ RSpec.describe "returns Roadtrip endpoint" do
 
     expect(trip).to have_key(:id)
     expect(trip[:id]).to eq("null")
-    expect(trip).to have_key(:trip)
-    expect(trip[:trip]).to eq("roadtrip")
+    expect(trip).to have_key(:type)
+    expect(trip[:type]).to eq("roadtrip")
     expect(trip[:attributes]).to have_key(:start_city)
-    expect(trip[:attributes][d:start_city]).to be_a(String)
+    expect(trip[:attributes][:start_city]).to be_a(String)
     expect(trip[:attributes]).to have_key(:end_city)
-    expect(trip[:attributes][d:end_city]).to be_a(String)
+    expect(trip[:attributes][:end_city]).to be_a(String)
     expect(trip[:attributes]).to have_key(:travel_time)
-    expect(trip[:attributes][d:travel_time]).to be_a(String)
-    expect(trip[:attributes][d:travel_time]).to eq("impossible")
+    expect(trip[:attributes][:travel_time]).to be_a(String)
+    expect(trip[:attributes][:travel_time]).to eq("impossible route")
     expect(trip[:attributes]).to_not have_key(:weather_at_eta)
     end
   end
