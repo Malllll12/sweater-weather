@@ -23,6 +23,17 @@ RSpec.describe "user request endpoint" do
   end
 
   describe "sad path" do
+    it 'if user exists direct them to log in' do
+      User.create(email: "fake@example.com", password: "seacret", password_confirmation: "seacret")
+
+      info = {"email": "fake@example.com",
+              "password": "seacret",
+              "password_confirmation": "seacret"}
+      post '/api/v1/users', params: info, as: :json
+      expect(response).to_not be_successful
+      expect(response.status).to eq(400)
+    end
+
     it 'returns an error with incomplete credentials' do
       info = {"email": 'fake@example.com'}
       post '/api/v1/users', params: info, as: :json
