@@ -44,6 +44,7 @@ On your local system, open a terminal session to run the following commands:
 
 ## API
 
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/a9cfb8009263739bd05f?action=collection%2Fimport)
 
 ### Forcast Endpoint
 | http verb | name | description | example |
