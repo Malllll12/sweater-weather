@@ -15,7 +15,7 @@ jobs:
           --health-timeout 5s
           --health-retries 5
   steps:
-    - uses: actions/checkout@v1
+    # - uses: actions/checkout@v1
     - name: setup Ruby
       uses: actions/setup-ruby@v1
       with:
