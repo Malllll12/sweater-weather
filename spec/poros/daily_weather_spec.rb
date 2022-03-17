@@ -24,7 +24,7 @@ RSpec.describe DailyWeather do
             "uvi": 3.02}
 
     daily = DailyWeather.new(data)
-    expect(daily.date).to eq("2022-06-03 12:00:00 -0700")
+    expect(daily.date).to be_a(String)
     expect(daily.sunrise).to eq("2022-06-03 06:25:35 -0700")
     expect(daily.sunset).to eq("2022-06-03 17:57:04 -0700")
     expect(daily.max_temp).to eq(26.17)
