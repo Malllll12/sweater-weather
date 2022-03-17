@@ -20,7 +20,7 @@ RSpec.describe HourlyWeather do
             "snow": { "1h": 0.13}}
 
     hourly = HourlyWeather.new(data)
-    expect(hourly.time).to eq("13:00:00")
+    expect(hourly.time).to be_a(String)
     expect(hourly.temp).to eq(23.9)
     expect(hourly.conditions).to eq("light snow")
     expect(hourly.icon).to eq("13d")
